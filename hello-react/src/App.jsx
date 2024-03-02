@@ -1,35 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import TaskCard from "./TaskCard";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div class="grid grid-cols-2 gap-2 border-solid p-30">
+      <div className="border-solid border-2 p-2">
+        <h1 className="text-xl font-bold text-gray-500 text-center items-center pb-6">Pending</h1>
+        <TaskCard title="Build the website with static content" due_on="10th April" assigneeName="Rohit S" />
+        <TaskCard title="Add a blog" due_on="22nd March" assigneeName="Rohit M" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="border-solid border-2 p-2">
+        <h1 className="text-xl font-bold text-gray-500 text-center items-center pb-6">Done</h1>
+        <TaskCard title="Design the mockup" completed_on="10th April" assigneeName="Rohit M" />
+        <TaskCard title="Get the approval form principal" completed_on="20th April" assigneeName="Ajay S" />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
-export default App
+export default App;
