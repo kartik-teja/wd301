@@ -17,14 +17,20 @@ class TaskList extends React.Component<Props, State>{
     constructor(props: Props) {
         super(props);
         this.state = {
-            tasks: [{ title: "Pay rent" }, { title: "Submit assignment" }],
+            tasks: [],
         }
+    }
+    componentDidMount(): void {
+        const tasks = [{ title: "Pay rent" }, { title: "Submit assignment" }];
+        this.setState((state, props) => ({
+            tasks,
+        }));
     }
     render() {
         return (
             <>
-                {this.state.tasks.map((task: { title: string; }) => (
-                    <Task title={task.title} />
+                {this.state.tasks.map((task: { title: string; }, idx) => (
+                    <Task key={idx} title={task.title} />
                 ))}</>
         )
     }
