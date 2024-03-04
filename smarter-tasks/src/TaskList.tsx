@@ -13,7 +13,7 @@ interface State {
     tasks: TaskItem[],
 }
 
-class TaskList extends React.Component<PaymentResponse, State>{
+class TaskList extends React.Component<Props, State>{
     constructor(props: Props) {
         super(props);
         this.state = {
