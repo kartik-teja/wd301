@@ -1,7 +1,12 @@
 import React from "react";
-class Task extends React.Component {
+
+interface TaskProp {
+    title: string;
+}
+
+class Task extends React.Component<TaskProp>{
     render() {
-        return <div className="text-xl">Buy groceries</div>
+        return (<div>{this.props.title}</div>)
     }
 }
 
