@@ -6,7 +6,7 @@ interface TaskProp {
 
 class Task extends React.Component<TaskProp>{
     render() {
-        return (<div>{this.props.title}</div>)
+        return (<div className="text-xl">{this.props.title}</div>)
     }
 }
 
