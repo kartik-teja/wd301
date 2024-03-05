@@ -40,7 +40,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
             date: this.state.date,
         };
         this.props.addTask(newTask);
-        this.setState({ title: "" });
+        this.setState({ title: "", description: "", date: "" });
     };
     render() {
         return (
