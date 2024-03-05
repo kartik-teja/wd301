@@ -1,4 +1,5 @@
 import React from "react";
+import "./TaskCard.css"
 
 interface TaskProp {
     title: string;
