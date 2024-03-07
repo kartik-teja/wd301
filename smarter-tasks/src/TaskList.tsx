@@ -8,7 +8,7 @@ interface Props {
 
 
 const TaskList = (props: Props) => {
-    const { tasks, deleteTask } = props;
+    const { deleteTask } = props;
 
     const handleDeleteTask = (task: TaskItem) => {
         deleteTask(task);
