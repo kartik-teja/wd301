@@ -16,8 +16,8 @@ const TaskApp = () => {
         setTaskAppState({ tasks: [...taskAppState.tasks, task] });
     };
     const deleteTask = (deltask: TaskItem) => {
-        const updatedTasks = taskAppState.tasks.filter(task => task !== deltask);
-        setTaskAppState({ tasks: updatedTasks });
+        //     const updatedTasks = taskAppState.tasks.filter(task => task !== deltask);
+        //     setTaskAppState({ tasks: updatedTasks });
     };
     return (
         <div className="container py-10 max-w-7xl mx-auto">
@@ -34,7 +34,7 @@ const TaskApp = () => {
                         Pending
                     </h1>
                     <TaskForm addTask={addTask} />
-                    <TaskList deleteTask={deleteTask} tasks={[]} />
+                    <TaskList deleteTask={deleteTask} tasks={[...taskAppState.tasks]} />
                 </div>
             </div>
         </div>
