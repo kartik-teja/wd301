@@ -11,14 +11,14 @@ const Task = (props: Props) => {
         props.onDelete();
     }
     return (
-        <div className="TaskItem shadow-md border border-slate-100">
+        <li className="TaskItem shadow-md border border-slate-100">
             <h2 className="text-base font-bold my-1">{props.title}</h2>
             <p className="text-sm text-slate-500">dueDate: {props.dueDate}</p>
             <p className="text-sm text-slate-500">
                 Description: {props.description}
             </p>
             <button className="deleteTaskButton bg-red-600 rounded-lg px-5 text-center" onClick={deleteTask}>Delete Task</button>
-        </div>
+        </li>
     );
 };
 

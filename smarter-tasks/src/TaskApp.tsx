@@ -16,7 +16,7 @@ const TaskApp = () => {
         setTaskAppState({ tasks: [...taskAppState.tasks, task] });
     };
     const deleteTask = (deltask: TaskItem) => {
-        const updatedTasks = taskAppState.tasks.filter(task => task !== deltask);
+        const updatedTasks = taskAppState.tasks.filter(task => task.title !== deltask.title);
         setTaskAppState({ tasks: updatedTasks });
     };
     return (
@@ -34,7 +34,9 @@ const TaskApp = () => {
                         Pending
                     </h1>
                     <TaskForm addTask={addTask} />
-                    <TaskList deleteTask={deleteTask} tasks={[...taskAppState.tasks]} />
+                    <ul>
+                        <TaskList deleteTask={deleteTask} tasks={[...taskAppState.tasks]} />
+                    </ul>
                 </div>
             </div>
         </div>
