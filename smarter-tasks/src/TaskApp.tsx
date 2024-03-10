@@ -15,8 +15,8 @@ const TaskApp = () => {
     const addTask = (task: TaskItem) => {
         setTaskAppState({ tasks: [...taskAppState.tasks, task] });
     };
-    const deleteTask = (deltask: TaskItem) => {
-        const updatedTasks = taskAppState.tasks.filter(task => task.title !== deltask.title);
+    const deleteTask = (taskId: string) => {
+        const updatedTasks = taskAppState.tasks.filter(task => task.id !== taskId);
         setTaskAppState({ tasks: updatedTasks });
     };
     return (
@@ -35,7 +35,7 @@ const TaskApp = () => {
                     </h1>
                     <TaskForm addTask={addTask} />
                     <ul>
-                        <TaskList deleteTask={deleteTask} tasks={[...taskAppState.tasks]} />
+                        <TaskList removeTask={deleteTask} tasks={[...taskAppState.tasks]} />
                     </ul>
                 </div>
             </div>
