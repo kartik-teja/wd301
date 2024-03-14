@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Header = () => {
     const location = useLocation();
@@ -11,20 +11,20 @@ const Header = () => {
             <div className="mx-auto px-4">
                 <div className="flex justify-between">
                     <div className="flex items-center w-1/3">
-                        <a href="/home" className="ml-6 text-gray-300 hover:text-white">
+                        <Link to="/home" className="ml-6 text-gray-300 hover:text-white">
                             Home
-                        </a>
-                        <a href="/tasks" className="ml-6 text-gray-300 hover:text-white">
+                        </Link>
+                        <Link to="/tasks" className="ml-6 text-gray-300 hover:text-white">
                             Tasks
-                        </a>
+                        </Link>
                     </div>
                     <div className="flex items-center w-1/3 justify-center">
                         <h2 className="text-white text-lg font-bold">Smarter Tasks</h2>
                     </div>
                     <div className="flex items-center w-1/3 justify-end">
-                        <a href="/signin" className="ml-6 text-gray-300 hover:text-white">
+                        <Link to="/signin" className="ml-6 text-gray-300 hover:text-white">
                             Signout
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
