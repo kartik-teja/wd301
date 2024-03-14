@@ -34,9 +34,8 @@ const TaskApp = () => {
                         Pending
                     </h1>
                     <TaskForm addTask={addTask} />
-                    <ul>
-                        <TaskList removeTask={deleteTask} tasks={[...taskAppState.tasks]} />
-                    </ul>
+                    <TaskList removeTask={deleteTask} tasks={[...taskAppState.tasks]} />
+
                 </div>
             </div>
         </div>
