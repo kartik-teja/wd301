@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NotFound: React.FC = () => {
     return (
@@ -7,13 +8,13 @@ const NotFound: React.FC = () => {
                 <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
                     404 Page Not Found
                 </h2>
-                <button
-                    id="backToHomeButton"
-                    type="submit"
-                    className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray"
-                >
-                    Homepage
-                </button>
+                <div className="flex justify-center items-center">
+                    <Link to="/home"
+                        id="backToHomeButton"
+                        className=" flex w-full bg-gray-700 justify-center items-center hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray">
+                        Homepage
+                    </Link>
+                </div>
             </div>
 
         </div>);
