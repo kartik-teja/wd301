@@ -2,7 +2,7 @@
 import Layout from './Layout';
 import HomePage from './pages/HomePage';
 import TaskListPage from './pages/TaskListPage';
-import NotFound from './pages/NotFound';
+import NotFound from './pages/Notfound';
 import {
   createBrowserRouter,
   Navigate,
