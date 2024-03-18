@@ -21,7 +21,12 @@ const SigninForm: React.FC = () => {
 
             console.log('Sign-in successful');
 
-            // After successful signin we have to redirect the user to the secured page. We will do that later.
+            // extract the response body as JSON data
+            const data = await response.json();
+
+            // After successful signin, first we will save the token in localStorage
+            localStorage.setItem('authToken', data.token);
+            localStorage.setItem('userData', JSON.stringify(data.user));
 
         } catch (error) {
             console.error('Sign-in failed:', error);
