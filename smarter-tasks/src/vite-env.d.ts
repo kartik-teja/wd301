@@ -1,1 +1,8 @@
-VITE_API_ENDPOINT = 'https://wd301-api.pupilfirst.school';
+interface ImportMetaEnv {
+    [x: string]: any,
+    readonly VITE_API_ENDPOINT: string,
+}
+
+interface ImportMeta {
+    readonly env: ImportMetaEnv,
+}

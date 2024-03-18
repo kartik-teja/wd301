@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
 
 const SignupForm: React.FC = () => {
+    console.log(API_ENDPOINT);
     const [organisationName, setOrganisationName] = useState('');
     const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
