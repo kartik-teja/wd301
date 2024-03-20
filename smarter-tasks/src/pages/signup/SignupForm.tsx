@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 
 const SignupForm: React.FC = () => {
     console.log(API_ENDPOINT);
