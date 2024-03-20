@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const SignupForm: React.FC = () => {
     console.log(API_ENDPOINT);
@@ -7,7 +10,7 @@ const SignupForm: React.FC = () => {
     const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [userPassword, setUserPassword] = useState('');
-
+    const navigate = useNavigate();
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
@@ -22,7 +25,8 @@ const SignupForm: React.FC = () => {
 
             localStorage.setItem('authToken', data.token);
 
-            localStorage.setItem('userData', JSON.stringify(data.user))
+            localStorage.setItem('userData', JSON.stringify(data.user));
+            navigate('/signin');
         } catch (error) {
             console.error('Sign-up failed:', error);
 
@@ -30,7 +34,7 @@ const SignupForm: React.FC = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <><form onSubmit={handleSubmit}>
             <div>
                 <label className="block text-gray-700 font-semibold mb-2">Organisation Name:</label>
                 <input type="text" name="organisationName" id="organisationName" value={organisationName} onChange={(e) => setOrganisationName(e.target.value)} className="w-full border rounded-md py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" />
@@ -49,6 +53,8 @@ const SignupForm: React.FC = () => {
             </div>
             <button type="submit" className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">Sign up</button>
         </form>
+            <Link to={'/signin'} className="block text-center mt-4 text-gray-600 hover:text-gray-800">Already registered? Click here to sign in</Link>
+        </>
     );
 };
 
