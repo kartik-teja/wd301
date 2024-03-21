@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const Dashboard: React.FC = () => {
     const navigate = useNavigate();
     const checkAuthentication = () => {
-        const isAuthenticated = localStorage.getItem('authenticated');
-        if (!isAuthenticated) {
+        const LoggedIn = localStorage.getItem('userData');
+        if (!LoggedIn) {
             navigate('/signin');
         }
     };
