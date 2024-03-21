@@ -6,8 +6,9 @@ import { Link, useNavigate } from 'react-router-dom';
 const SigninForm: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [authenticated, setauthenticated] = useState(false);
     const navigate = useNavigate();
+
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -25,22 +26,21 @@ const SigninForm: React.FC = () => {
 
             console.log('Sign-in successful');
 
-            // extract the response body as JSON data
+
             const data = await response.json();
 
-            // After successful signin, first we will save the token in localStorage
+
             localStorage.setItem('authToken', data.token);
             localStorage.setItem('userData', JSON.stringify(data.user));
-            setLoggedIn(true);
+            setauthenticated(true);
+            navigate('/dashboard');
+
 
         } catch (error) {
             console.error('Sign-in failed:', error);
         }
     };
 
-    if (loggedIn) {
-        navigate("/dashboard");
-    }
 
     return (
         <><form onSubmit={handleSubmit}>
