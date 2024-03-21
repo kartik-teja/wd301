@@ -38,8 +38,7 @@ const SigninForm: React.FC = () => {
     };
 
     const checkAuthentication = () => {
-        const LoggedIn = localStorage.getItem('userData');
-        if (!LoggedIn) {
+        if (!loggedIn) {
             navigate('/signin');
         }
     };
