@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const SigninForm: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -30,7 +29,6 @@ const SigninForm: React.FC = () => {
 
             localStorage.setItem('authToken', data.token);
             localStorage.setItem('userData', JSON.stringify(data.user));
-            setLoggedIn(true);
 
         } catch (error) {
             console.error('Sign-in failed:', error);
@@ -38,6 +36,7 @@ const SigninForm: React.FC = () => {
     };
 
     const checkAuthentication = () => {
+        const loggedIn = localStorage.getItem('userData');
         if (loggedIn) {
             navigate('/dashboard');
         }
