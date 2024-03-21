@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
-import { Link } from 'react-router-dom';
-import Dashboard from '../dashboard';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+//import Dashboard from '../dashboard';
 
 const SigninForm: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -38,7 +39,7 @@ const SigninForm: React.FC = () => {
     };
 
     if (loggedIn) {
-        return <Dashboard />
+        navigate("/dashboard");
     }
 
     return (
