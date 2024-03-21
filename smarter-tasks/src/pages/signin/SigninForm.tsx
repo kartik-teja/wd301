@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
-import { Link, useNavigate } from 'react-router-dom';
-//import Dashboard from '../dashboard';
+import { Link } from 'react-router-dom';
+import Dashboard from '../dashboard';
 
 const SigninForm: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [authenticated, setauthenticated] = useState(false);
-    const navigate = useNavigate();
-
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -26,21 +24,22 @@ const SigninForm: React.FC = () => {
 
             console.log('Sign-in successful');
 
-
+            // extract the response body as JSON data
             const data = await response.json();
 
-
+            // After successful signin, first we will save the token in localStorage
             localStorage.setItem('authToken', data.token);
             localStorage.setItem('userData', JSON.stringify(data.user));
-            setauthenticated(true);
-            navigate('/dashboard');
-
+            setLoggedIn(true);
 
         } catch (error) {
             console.error('Sign-in failed:', error);
         }
     };
 
+    if (loggedIn) {
+        return <Dashboard />
+    }
 
     return (
         <><form onSubmit={handleSubmit}>
