@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { API_ENDPOINT } from '../../config/constants';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 //import Dashboard from '../dashboard';
 
 const SigninForm: React.FC = () => {
