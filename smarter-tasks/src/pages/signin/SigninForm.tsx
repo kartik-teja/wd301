@@ -38,8 +38,8 @@ const SigninForm: React.FC = () => {
     };
 
     const checkAuthentication = () => {
-        if (!loggedIn) {
-            navigate('/signin');
+        if (loggedIn) {
+            navigate('/dashboard');
         }
     };
 
