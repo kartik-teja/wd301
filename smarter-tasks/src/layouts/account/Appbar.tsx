@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { UserCircleIcon } from '@heroicons/react/24/outline'
 import { Link, useLocation } from "react-router-dom"
-import { Logo } from '../../assets/images/logo.png'
+import Logo from '../../assets/images/logo.png'
 
 const userNavigation = [
     { name: 'Profile', href: '#' },
