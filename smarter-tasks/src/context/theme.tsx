@@ -21,9 +21,9 @@ const ThemeProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
 
 
     return (
-        <ThemeContext.Provider value= { valueToShare } >
-        { children }
-        < /ThemeContext.Provider>
+        <ThemeContext.Provider value={valueToShare}>
+            {children}
+        </ThemeContext.Provider>
     );
 };
 
