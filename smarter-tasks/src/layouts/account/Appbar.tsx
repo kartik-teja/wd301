@@ -72,6 +72,7 @@ const Appbar = () => {
                                     </div>
                                 </div>
                             </div>
+
                             <div className="hidden md:block">
                                 <div className="ml-4 flex items-center md:ml-6">
                                     <Menu as="div" className="relative ml-3">
@@ -80,6 +81,7 @@ const Appbar = () => {
                                                 <UserCircleIcon className="h-6 w-6" aria-hidden="true" />
                                             </Menu.Button>
                                         </div>
+
                                         <Transition
                                             as={Fragment}
                                             enter="transition ease-out duration-100"
@@ -89,25 +91,7 @@ const Appbar = () => {
                                             leaveFrom="transform opacity-100 scale-100"
                                             leaveTo="transform opacity-0 scale-95"
                                         >
-                                            <Switch
-                                                checked={enabled}
-                                                onChange={toggleTheme}
-                                                className={`${enabled ? 'bg-slate-400' : 'bg-slate-700'}
-          relative inline-flex h-[24px] w-[60px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
-                                            >
-                                                <span
-                                                    aria-hidden="true"
-                                                    className={`${enabled ? 'translate-x-9' : 'translate-x-0'}
-                pointer-events-none inline-block h-[16px] w-[16px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-                                                />
-                                            </Switch>
-                                            <Menu as="div" className="relative ml-3">
-                                                <div>
-                                                    <Menu.Button className="rounded-full bg-white p-1 text-gray-400 hover:text-blue-600">
-                                                        <UserCircleIcon className="h-6 w-6" aria-hidden="true" />
-                                                    </Menu.Button>
-                                                </div>
-                                            </Menu>
+
                                             <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                                 {userNavigation.map((item) => (
                                                     <Menu.Item key={item.name}>
@@ -126,7 +110,21 @@ const Appbar = () => {
                                                 ))}
                                             </Menu.Items>
                                         </Transition>
+                                        <Switch
+                                            checked={enabled}
+                                            onChange={toggleTheme}
+                                            className={`${enabled ? 'bg-slate-400' : 'bg-slate-700'}
+          relative inline-flex h-[24px] w-[60px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
+                                        >
+                                            <span
+                                                aria-hidden="true"
+                                                className={`${enabled ? 'translate-x-9' : 'translate-x-0'}
+                pointer-events-none inline-block h-[16px] w-[16px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
+                                            />
+                                        </Switch>
+
                                     </Menu>
+
                                 </div>
                             </div>
                         </div>
