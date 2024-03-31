@@ -9,6 +9,7 @@ export const useMembersState = () => useContext(MembersStateContext);
 export const useMembersDispatch = () => useContext(MembersDispatchContext);
 
 type MembersDispatch = React.Dispatch<MembersActions>;
+
 const MembersDispatchContext = createContext<MembersDispatch | undefined>(undefined);
 
 export const ProjectProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
