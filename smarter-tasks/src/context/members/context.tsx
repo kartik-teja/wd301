@@ -12,7 +12,7 @@ type MembersDispatch = React.Dispatch<MembersActions>;
 
 const MembersDispatchContext = createContext<MembersDispatch | undefined>(undefined);
 
-export const ProjectProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const MemberProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     return (

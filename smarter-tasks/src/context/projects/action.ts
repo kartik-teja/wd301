@@ -33,18 +33,18 @@ export const fetchProjects = async (dispatch: any) => {
   const token = localStorage.getItem("authToken") ?? "";
 
   try {
-    dispatch({ type: "API_CALL_START" });
+    dispatch({ type: "FETCH_PROJECTS_REQUEST" });
     const response = await fetch(`${API_ENDPOINT}/projects`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${token}` },
     });
     const data = await response.json();
-    dispatch({ type: "API_CALL_END", payload: data });
+    dispatch({ type: "FETCH_PROJECTS_SUCCESS", payload: data });
     // setProjects(data);
     // setIsLoading(false);
   } catch (error) {
     console.log('Error fetching projects:', error);
     //setIsLoading(false);
-    dispatch({ type: "API_CALL_ERROR" });
+    dispatch({ type: "FETCH_PROJECTS_FAILURE" });
   }
 };

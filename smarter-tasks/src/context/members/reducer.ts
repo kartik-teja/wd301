@@ -23,6 +23,7 @@ export type MembersActions =
     | { type: 'FETCH_MEMBERS_SUCCESS'; payload: Member[] }
     | { type: 'FETCH_MEMBERS_FAILURE'; payload: string }
     | { type: 'ADD_MEMBER_SUCCESS'; payload: Member }
+    | { type: 'REMOVE_MEMBER'; payload: string }
 
 export const reducer = (state: MembersState, action: MembersActions): MembersState => {
     switch (action.type) {
@@ -46,6 +47,11 @@ export const reducer = (state: MembersState, action: MembersActions): MembersSta
             };
         case "ADD_MEMBER_SUCCESS":
             return { ...state, members: [...state.members, action.payload] };
+        case "REMOVE_MEMBER":
+            return {
+                ...state,
+                members: state.members.filter(member => member.id !== action.payload) // Remove member with specified ID
+            };
         default:
             return state;
     }

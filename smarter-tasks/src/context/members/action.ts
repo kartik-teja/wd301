@@ -30,42 +30,45 @@ export const addMember = async (dispatch: any, args: any) => {
     }
 }
 export const deleteMembers = async (dispatch: any, id: string) => {
-    const token = localStorage.getItem("authToken") ?? "";
-
     try {
-        dispatch({ type: "API_CALL_START" });
+
+        const token = localStorage.getItem("authToken") ?? "";
         const response = await fetch(`${API_ENDPOINT}/users/${id}`, {
             method: 'DELETE',
-            headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${token}` },
+            headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
         });
         if (!response.ok) {
-            throw new Error("Failed to delete member");
+            throw new Error("failed to remove a Members");
         }
-        const data = await response.json();
-        dispatch({ type: "API_CALL_END", payload: data });
+        dispatch({ type: 'REMOVE_MEMBER_SUCCESS', payload: id });
 
-    } catch (error) {
-        console.log('Error deleting member:', error);
-        dispatch({ type: "API_CALL_ERROR" });
+        return { ok: true }
     }
-};
+    catch (error) {
+        console.error("operation failed", error);
+        return { ok: false, error };
+    }
+}
 
 export const fetchMembers = async (dispatch: any) => {
     console.log("Type and value of dispatch:", typeof dispatch, dispatch);
     const token = localStorage.getItem("authToken") ?? "";
 
     try {
-        dispatch({ type: "API_CALL_START" });
+        dispatch({ type: "FETCH_MEMBERS_REQUEST" });
         const response = await fetch(`${API_ENDPOINT}/users`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${token}` },
         });
         const data = await response.json();
-        dispatch({ type: "API_CALL_END", payload: data });
+        dispatch({ type: "FETCH_MEMBERS_SUCCESS", payload: data });
 
     } catch (error) {
         console.log('Error fetching members:', error);
         //setIsLoading(false);
-        dispatch({ type: "API_CALL_ERROR" });
+        dispatch({ type: "FETCH_MEMBERS_FAILURE" });
     }
 };
