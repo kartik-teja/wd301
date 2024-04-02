@@ -29,8 +29,9 @@ const NewMember = () => {
         const { id, name, email } = data
 
         const response = await addMember(dispatchMembers, { id, name, email })
-
+        console.log(response);
         if (response.ok) {
+
             setIsOpen(false)
         } else {
 

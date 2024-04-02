@@ -2,7 +2,7 @@ import { API_ENDPOINT } from "../../config/constants";
 
 export const addMember = async (dispatch: any, args: any) => {
     try {
-
+        console.log(args);
         const token = localStorage.getItem("authToken") ?? "";
         const response = await fetch(`${API_ENDPOINT}/users`, {
             method: 'POST',
