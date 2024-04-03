@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { fetchProjects } from '../../context/projects/action';
+import { fetchProjects } from '../../context/projects/actions';
 import { useProjectsDispatch } from '../../context/projects/context';
 // interface Action {
 //   type: string;

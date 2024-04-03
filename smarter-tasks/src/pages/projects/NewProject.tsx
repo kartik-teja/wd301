@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 
 import { useProjectsDispatch } from "../../context/projects/context";
-import { addProject } from '../../context/projects/action';
+import { addProject } from '../../context/projects/actions';
 
 type Inputs = {
     name: string

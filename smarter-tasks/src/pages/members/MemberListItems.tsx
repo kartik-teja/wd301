@@ -1,5 +1,5 @@
 //import React from 'react';
-import { deleteMembers } from "../../context/members/action";
+import { deleteMembers } from "../../context/members/actions";
 import { useMembersDispatch, useMembersState } from "../../context/members/context";
 
 export default function MemberListItem() {
@@ -23,7 +23,7 @@ export default function MemberListItem() {
                 };
 
                 return (
-                    <div key={member.id} className="bg-white rounded-lg shadow-md p-4 mb-4">
+                    <div key={member.id} className="bg-white rounded-lg shadow-md p-4 mb-4 member">
                         <div>
                             <h5 className="text-lg font-semibold">{member.name}</h5>
                             <h6 className="text-gray-600">{member.email}</h6>
