@@ -2,6 +2,7 @@ interface Member {
     id: string;
     name: string;
     email: string;
+    password: string;
 }
 
 export const initialState: MembersState = {
@@ -50,7 +51,7 @@ export const reducer = (state: MembersState, action: MembersActions): MembersSta
         case "REMOVE_MEMBER":
             return {
                 ...state,
-                members: state.members.filter(member => member.id !== action.payload) // Remove member with specified ID
+                members: state.members.filter(member => member.id !== action.payload)
             };
         default:
             return state;

@@ -40,6 +40,11 @@ export const deleteMembers = async (dispatch: any, id: string) => {
                 Authorization: `Bearer ${token}`,
             },
         });
+        const data = await response.json();
+
+        if (data.errors && data.errors.length > 0) {
+            return { ok: false, error: data.errors[0].message };
+        }
         if (!response.ok) {
             throw new Error("failed to remove a Members");
         }
