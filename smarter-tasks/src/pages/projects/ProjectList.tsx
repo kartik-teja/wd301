@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect } from 'react';
 
 import { fetchProjects } from '../../context/projects/action';
 import { useProjectsDispatch } from '../../context/projects/context';
