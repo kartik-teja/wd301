@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useTasksDispatch, useTasksState } from "../../context/task/context";
 import { refreshTasks } from "../../context/task/actions";
 import { Link, useParams } from "react-router-dom";

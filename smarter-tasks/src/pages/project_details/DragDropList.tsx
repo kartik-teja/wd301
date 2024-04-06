@@ -1,5 +1,5 @@
 import React from "react";
-import { AvailableColumns, ProjectData } from "../../context/task/types";
+import { AvailableColumns, ColumnData, ProjectData } from "../../context/task/types";
 import Column from "./Column";
 import { useParams } from "react-router-dom";
 import { DragDropContext, OnDragEndResponder } from "react-beautiful-dnd";
@@ -79,6 +79,22 @@ const DragDropList = (props: {
         updatedTask.state = finishKey;
         updateTask(taskDispatch, projectID ?? "", updatedTask);
     };
+    return (
+        <DragDropContext onDragEnd={onDragEnd}>
+            <Container>
+                <div className="grid grid-cols-3 gap-4">
+                    {Object.keys(props.data.columns).map((columnId) => {
+                        const column: ColumnData = props.data.columns[columnId as AvailableColumns];
+                        const tasks = column.taskIDs.map(
+                            (taskId: string) => props.data.tasks[taskId]
+                        );
+
+                        return <Column key={column.id} column={column} tasks={tasks} />;
+                    })}
+                </div>
+            </Container>
+        </DragDropContext>
+    );
 };
 
 export default DragDropList;
