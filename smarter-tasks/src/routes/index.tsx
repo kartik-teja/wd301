@@ -1,4 +1,4 @@
-import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import TaskDetailsContainer from "../pages/tasks/NewTask";
 import Signin from "../pages/signin"
