@@ -1,7 +1,7 @@
 import { Reducer } from "react";
 
 import projectData from "./initialData";
-import { ProjectData, TaskActions, TaskDetails, TaskListAvailableAction, TaskListState } from "./types";
+import { TaskActions, TaskListAvailableAction, TaskListState } from "./types";
 
 export const initialState: TaskListState = {
     projectData: projectData,
