@@ -6,7 +6,7 @@ import { ColumnData, TaskDetails } from "../../context/task/types";
 
 const Container = (props: React.PropsWithChildren) => {
     return (
-        <div className="m-2 border border-gray rounded w-1/3 flex flex-col">
+        <div className="m-2 border border-gray-300 rounded-lg overflow-hidden w-1/3 flex flex-col">
             {props.children}
         </div>
     );
@@ -36,6 +36,7 @@ const Column: React.FC<Props> = (props) => {
     return (
         <Container>
             <Title>{props.column.title}</Title>
+
             <Droppable droppableId={props.column.id}>
                 {(provided) => (
                     <TaskList ref={provided.innerRef} {...provided.droppableProps}>
@@ -45,6 +46,7 @@ const Column: React.FC<Props> = (props) => {
                         {provided.placeholder}
                     </TaskList>
                 )}
+
             </Droppable>
         </Container>
     );

@@ -7,7 +7,7 @@ import { useTasksDispatch } from "../../context/task/context";
 import { reorderTasks, updateTask } from "../../context/task/actions";
 
 const Container = (props: React.PropsWithChildren) => {
-    return <div className="flex">{props.children}</div>;
+    return <div className="flex mx-auto max-w-screen-lg">{props.children}</div>;
 };
 
 const DragDropList = (props: {
