@@ -1,4 +1,4 @@
-//import React from "react";
+import React from "react";
 import { useProjectState } from "../../context/projects/context";
 import { useTasksState } from "../../context/task/context";
 import TaskDetails from "./TaskDetails";
@@ -10,6 +10,8 @@ const TaskDetailsContainer = () => {
     const taskListState = useTasksState();
     const isFetchingTasks = taskListState.isLoading;
     const selectedTask = taskListState.projectData.tasks?.[taskID || ""];
+    // We will render a loader based on the status,
+    // We make sure, the tasks have been fetched, project is a valid one.
     if (isFetchingTasks || !projectState || projectState?.isLoading) {
         return <>Loading...</>;
     }
