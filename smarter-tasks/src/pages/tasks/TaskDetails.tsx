@@ -9,7 +9,7 @@ import { useProjectState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { useMembersState } from "../../context/members/context";
 import { useCommentDispatch, useCommentState } from "../../context/comment/context";
-import { addComment, fetchComments } from "../../context/comment/action";
+import { addComment, fetchComments } from "../../context/comment/actions";
 
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
