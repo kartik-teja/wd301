@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, PropsWithChildren } from 'react';
 import { CommentState, CommentDispatch } from './types';
 import { commentReducer, initialCommentState } from './reducer';
 
@@ -8,7 +8,7 @@ import { commentReducer, initialCommentState } from './reducer';
 const CommentStateContext = createContext<CommentState>(initialCommentState);
 const CommentDispatchContext = createContext<CommentDispatch>(() => { });
 
-export const CommentProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const CommentProvider: React.FC<PropsWithChildren> = ({ children }) => {
     const [state, dispatch] = useReducer(commentReducer, initialCommentState);
     return (
         <CommentStateContext.Provider value={state}>

@@ -2,17 +2,11 @@ import React from 'react';
 
 export interface Comment {
     id: number;
-    description: string;
-    Member: Member;
-    commentOn: Date;
-    author: number;
+    comment: string;
+    name: string;
+    timestamp: DOMHighResTimeStamp;
 };
 
-interface Member {
-    id: number;
-    name: string;
-    email: string;
-}
 
 export interface CommentState {
     comments: Comment[];
