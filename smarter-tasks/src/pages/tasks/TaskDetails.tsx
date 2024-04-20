@@ -1,5 +1,5 @@
 import { Dialog, Transition, Listbox } from "@headlessui/react";
-import React, { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTasksDispatch, useTasksState } from "../../context/task/context";
@@ -8,7 +8,7 @@ import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { useProjectState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { useMembersState } from "../../context/members/context";
-import { CommentProvider, useCommentDispatch, useCommentState } from "../../context/comments/context";
+import { useCommentDispatch, useCommentState } from "../../context/comments/context";
 import { addComment, fetchComments } from "../../context/comments/action";
 
 
@@ -58,7 +58,7 @@ const TaskDetails = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { }
     } = useForm<TaskFormUpdatePayload>({
         defaultValues: {
             title: selectedTask.title,
@@ -88,12 +88,16 @@ const TaskDetails = () => {
         });
         closeModal();
     };
-    const handleAddComment = (commentText: string) => {
+    const handleAddComment: SubmitHandler<TaskFormUpdatePayload> = (data) => {
         const currentMemberString = localStorage.getItem("userData");
+        if (!currentMemberString) {
+            console.error("User data not found in local storage.");
+            return;
+        }
         const currentMember = JSON.parse(currentMemberString);
-        console.log(currentMember);
+
         const comment = {
-            comment: commentText,
+            comment: data,
             name: currentMember.name.toString(),
             timestamp: new Date().toISOString(),
         };

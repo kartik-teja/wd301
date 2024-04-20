@@ -12,7 +12,7 @@ import NotFound from "../pages/Notfound";
 import ProjectContainer from "../pages/projects/ProjectContainer";
 import ProjectDetails from "../pages/project_details";
 import NewTask from "../pages/tasks/NewTask";
-import TaskDetails from "../pages/tasks/TaskDetails";
+//import TaskDetails from "../pages/tasks/TaskDetails";
 
 const router = createBrowserRouter([
     { path: "/", element: <Navigate to="/account/projects" replace /> },
