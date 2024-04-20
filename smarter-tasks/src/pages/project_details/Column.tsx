@@ -6,7 +6,7 @@ import { ColumnData, TaskDetails } from "../../context/task/types";
 
 const Container = (props: React.PropsWithChildren) => {
     return (
-        <div className="m-2 border border-gray-300 rounded-lg overflow-hidden w-1/3 flex flex-col">
+        <div className="m-2 border border-gray-300 rounded-lg w-1/3 flex flex-col">
             {props.children}
         </div>
     );

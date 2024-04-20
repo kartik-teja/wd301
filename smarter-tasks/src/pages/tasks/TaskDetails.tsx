@@ -245,7 +245,7 @@ const TaskDetails = () => {
                                         <h3 className="text-lg font-medium">Comments</h3>
                                         <div className="mt-2">
 
-                                            {commentState.comments.map(comment => (
+                                            {commentState.comments.slice().reverse().map(comment => (
                                                 <div key={comment.id} className="comment">
                                                     <div className="mr-3">{comment.description}</div>
                                                     <div className="mr-3">{comment.createdAt}</div>
