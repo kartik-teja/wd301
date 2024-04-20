@@ -3,7 +3,7 @@ import { useProjectState } from "../../context/projects/context";
 import { useTasksState } from "../../context/task/context";
 import TaskDetails from "./TaskDetails";
 import { useParams } from "react-router-dom";
-import { CommentProvider } from "../../context/comments/context";
+import { CommentProvider } from "../../context/comment/context";
 
 const TaskDetailsContainer = () => {
     let { taskID } = useParams();

@@ -8,8 +8,8 @@ import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { useProjectState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { useMembersState } from "../../context/members/context";
-import { useCommentDispatch, useCommentState } from "../../context/comments/context";
-import { addComment, fetchComments } from "../../context/comments/action";
+import { useCommentDispatch, useCommentState } from "../../context/comment/context";
+import { addComment, fetchComments } from "../../context/comment/action";
 
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
