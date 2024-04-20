@@ -49,7 +49,7 @@ const TaskDetails = () => {
         (project) => `${project.id}` === projectID
     )[0];
 
-    console.log(commentState);
+    console.log(commentState.comments);
     const selectedTask = taskListState.projectData.tasks[taskID ?? ""];
 
     const [selectedPerson, setSelectedPerson] = useState(
@@ -243,9 +243,9 @@ const TaskDetails = () => {
 
                                             {commentState.comments.map(comment => (
                                                 <div key={comment.id} className="comment">
-                                                    <div className="mr-3">{comment.comment}</div>
-                                                    <div className="mr-3">{comment.timestamp}</div>
-                                                    <div className="mr-3">{comment.name}</div>
+                                                    <div className="mr-3">{comment.description}</div>
+                                                    <div className="mr-3">{comment.createdAt}</div>
+                                                    <div className="mr-3">{comment.User.name}</div>
                                                 </div>
                                             ))}
                                         </div>

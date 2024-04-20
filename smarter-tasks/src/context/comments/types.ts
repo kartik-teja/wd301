@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 export interface Comment {
+    User: any;
+    createdAt: ReactNode;
+    description: ReactNode;
     id: number;
     comment: string;
     name: string;
