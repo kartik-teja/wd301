@@ -83,20 +83,22 @@ const NewTask = () => {
                                                 placeholder="Enter title"
                                                 autoFocus
                                                 id="title"
+
                                                 // Register the title field
                                                 {...register("title", { required: true })}
                                                 className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
-                                            />
+                                                name="title" />
                                             <input
                                                 type="text"
                                                 required
                                                 placeholder="Enter description"
                                                 autoFocus
+
                                                 id="description"
                                                 // register the description field
                                                 {...register("description", { required: true })}
                                                 className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
-                                            />
+                                                name="description" />
                                             <input
                                                 type="date"
                                                 required
@@ -106,7 +108,7 @@ const NewTask = () => {
                                                 // register due date field
                                                 {...register("dueDate", { required: true })}
                                                 className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
-                                            />
+                                                name="dueDate" />
                                             <button
                                                 type="submit"
                                                 // Set an id for the submit button

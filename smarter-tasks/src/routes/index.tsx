@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     { path: "/", element: <Navigate to="/account/projects" replace /> },
     {
         path: "/",
-        element: <Signin />
+        element: <Signup />
     },
     {
         path: "/signin",
