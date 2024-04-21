@@ -37,3 +37,8 @@ export type CommentAction =
 
 
 export type CommentDispatch = React.Dispatch<CommentAction>;
+
+export type CommentsPayload = Omit<
+    Comment,
+    "id" | "createdAt" | "user" | "task_id"
+>;

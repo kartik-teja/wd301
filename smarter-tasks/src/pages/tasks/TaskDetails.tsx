@@ -9,7 +9,9 @@ import { useProjectState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { useMembersState } from "../../context/members/context";
 import { useCommentDispatch, useCommentState } from "../../context/comment/context";
-import { addComment, fetchComments } from "../../context/comment/actions";
+import { fetchComments } from "../../context/comment/actions";
+import CommentList from "../comment/CommentList";
+import NewComment from "../comment/NewComment";
 
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
@@ -88,21 +90,7 @@ const TaskDetails = () => {
         });
         closeModal();
     };
-    const handleAddComment: SubmitHandler<TaskFormUpdatePayload> = (data) => {
-        const currentMemberString = localStorage.getItem("userData");
-        if (!currentMemberString) {
-            console.error("User data not found in local storage.");
-            return;
-        }
-        const currentMember = JSON.parse(currentMemberString);
 
-        const comment = {
-            comment: data,
-            name: currentMember.name.toString(),
-            timestamp: new Date().toISOString(),
-        };
-        if (projectID && taskID) { addComment(commentDispatch, projectID, taskID, comment); }
-    };
 
     return (
         <>
@@ -240,36 +228,8 @@ const TaskDetails = () => {
                                             Cancel
                                         </button>
                                     </form>
-
-                                    <div className="mt-4">
-                                        <h3 className="text-lg font-medium">Comments</h3>
-                                        <div className="mt-2">
-
-                                            {commentState.comments.slice().reverse().map(comment => (
-                                                <div key={comment.id} className="comment">
-                                                    <div className="mr-3">{comment.description}</div>
-                                                    <div className="mr-3">{comment.createdAt}</div>
-                                                    <div className="mr-3">{comment.User.name}</div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <form onSubmit={handleSubmit(handleAddComment)} className="mt-4">
-                                        <input
-                                            type="text"
-                                            id="commentBox"
-                                            placeholder="Add a comment..."
-                                            className="w-full border rounded-md py-2 px-3 my-2 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
-                                        />
-                                        <button
-                                            type="submit"
-                                            id="addCommentBtn"
-                                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                        >
-                                            Add Comment
-                                        </button>
-                                    </form>
+                                    <CommentList />
+                                    <NewComment />
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>
