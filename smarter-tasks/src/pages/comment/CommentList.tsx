@@ -1,5 +1,4 @@
 import { useCommentState } from "../../context/comment/context";
-import { Comment } from "../../context/comment/types";
 
 export default function CommentList() {
     const commentState = useCommentState();

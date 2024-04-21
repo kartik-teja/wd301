@@ -9,7 +9,7 @@ import { useCommentDispatch } from "../../context/comment/context";
 
 
 const NewComment = () => {
-    let [isOpen, setIsOpen] = useState(true);
+    let [, setIsOpen] = useState(true);
 
     let { projectID, taskID } = useParams();
     let navigate = useNavigate();
