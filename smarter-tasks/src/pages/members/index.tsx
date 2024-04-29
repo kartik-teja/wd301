@@ -10,11 +10,11 @@ const Members = () => {
                 <h2 className="text-2xl font-medium tracking-tight">Members</h2>
                 <NewMember />
             </div>
-            <ErrorBoundary>
+            <div className="suspense-loading"><ErrorBoundary>
                 <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
                     <MemberList />
                 </Suspense>
-            </ErrorBoundary>
+            </ErrorBoundary></div>
         </>
     )
 }
